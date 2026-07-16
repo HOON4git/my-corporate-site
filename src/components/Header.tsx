@@ -80,7 +80,7 @@ const Header = ({ activeTab, setActiveTab, isScrolled }: HeaderProps) => {
       boxShadow: isScrolled ? '0 4px 30px rgba(0, 0, 0, 0.03)' : 'none',
     }}>
       <div style={headerStyles.logo} onClick={() => setActiveTab('home')}>
-        Ethanol Korea <span style={headerStyles.logoDot}>.</span>
+        K-Ethanol <span style={headerStyles.logoDot}>.</span>
       </div>
       <nav>
         <ul style={headerStyles.navList}>
