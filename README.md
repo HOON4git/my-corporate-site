@@ -15,3 +15,8 @@ service_a6242de
 
 ### Templates ID
 template_wjz4rxr
+
+# Deploy
+git add .
+git commit -m "Deploy website"
+git push origin main
