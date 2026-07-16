@@ -5,3 +5,10 @@ npm install --save-dev @types/react @types/react-dom
 
 # run
 npm run dev
+
+# EmailJS
+### Srvice ID
+service_a6242de
+
+### Templates ID
+template_wjz4rxr
