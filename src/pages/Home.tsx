@@ -125,8 +125,8 @@ const Home = ({ setActiveTab }: HomeProps) => {
           <span style={styles.gradientText}>고순도 발효주정</span>의 명가
         </h1>
         <p style={styles.heroSubtitle}>
-          대한주정판매, 우리주정 등의 정통 유통 신뢰를 이어받아,<br />
-          에탄올 코리아는 가장 정제된 95% 친환경 바이오 주정을 선도적으로 공급합니다.
+          가장 순수하고 정제된 고품질 원료공급 파트너,<br />
+          친환경 바이오 에탄올의 새로운 중심, K-Ethanol 이 함께합니다.
         </p>
         <div style={styles.btnGroup}>
           <button style={styles.primaryBtn} onClick={() => setActiveTab('products')}>주정 용도 둘러보기</button>
