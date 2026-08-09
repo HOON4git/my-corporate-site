@@ -25,9 +25,9 @@ export const Contact = () => {
 
     setIsSubmitting(true);
 
-    const serviceId = 'YOUR_SERVICE_ID';
-    const templateId = 'YOUR_TEMPLATE_ID';
-    const publicKey = 'YOUR_PUBLIC_KEY';
+    const serviceId = 'service_a6242de';
+    const templateId = 'template_wjz4rxr';
+    const publicKey = 'MI6Qsl_X-azTMWPf3';
 
     emailjs.send(serviceId, templateId, formData, publicKey)
       .then(() => {
