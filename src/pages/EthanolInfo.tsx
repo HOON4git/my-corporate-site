@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const EthanolInfo = () => {
   const applications = [
     { title: '식품원료', desc: '식초, 조미료, 향신료, 감미료, 맛술, 소스류, 절임제품, 떡, 면류(냉면, 생면)' },
