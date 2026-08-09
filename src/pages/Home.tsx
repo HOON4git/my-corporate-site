@@ -1,156 +1,222 @@
-import { useEffect, useState } from 'react';
-
-// 1. styles 객체를 컴포넌트 선언보다 위로 올립니다.
-const styles = {
-  container: {
-    paddingBottom: '100px',
-    transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
-  },
-  hero: {
-    display: 'flex',
-    flexDirection: 'column' as const,
-    alignItems: 'center',
-    textAlign: 'center' as const,
-    padding: '120px 20px 80px 20px',
-    background: 'radial-gradient(circle at top, rgba(0, 102, 255, 0.05) 0%, rgba(255,255,255,0) 70%)',
-  },
-  badge: {
-    backgroundColor: 'rgba(0, 102, 255, 0.08)',
-    color: '#0066FF',
-    padding: '8px 16px',
-    borderRadius: '30px',
-    fontSize: '13px',
-    fontWeight: 'bold' as const,
-    marginBottom: '20px',
-    letterSpacing: '0.5px',
-  },
-  heroTitle: {
-    fontSize: '48px',
-    fontWeight: 800,
-    lineHeight: '1.25',
-    letterSpacing: '-1.5px',
-    color: '#111',
-    margin: '0 0 24px 0',
-  },
-  gradientText: {
-    background: 'linear-gradient(135deg, #0066FF 0%, #00C6FF 100%)',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-  },
-  heroSubtitle: {
-    fontSize: '17px',
-    color: '#555',
-    lineHeight: '1.7',
-    maxWidth: '680px',
-    margin: '0 0 40px 0',
-  },
-  btnGroup: {
-    display: 'flex',
-    gap: '15px',
-  },
-  primaryBtn: {
-    padding: '15px 32px',
-    backgroundColor: '#111',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '12px',
-    fontSize: '15px',
-    fontWeight: 'bold' as const,
-    cursor: 'pointer',
-    transition: 'all 0.3s ease',
-  },
-  secondaryBtn: {
-    padding: '15px 32px',
-    backgroundColor: '#fff',
-    color: '#111',
-    border: '1px solid #ddd',
-    borderRadius: '12px',
-    fontSize: '15px',
-    fontWeight: 'bold' as const,
-    cursor: 'pointer',
-    transition: 'all 0.3s ease',
-  },
-  statsSection: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-    gap: '30px',
-    maxWidth: '1100px',
-    margin: '0 auto',
-    padding: '0 20px',
-  },
-  statCard: {
-    backgroundColor: '#F8F9FA',
-    borderRadius: '20px',
-    padding: '40px 30px',
-    textAlign: 'center' as const,
-    border: '1px solid #EEF0F2',
-  },
-  statNum: {
-    fontSize: '44px',
-    fontWeight: 800,
-    color: '#0066FF',
-    display: 'block',
-    marginBottom: '10px',
-  },
-  statLabel: {
-    fontSize: '15px',
-    color: '#666',
-    fontWeight: 500,
-  },
-};
+import React from 'react';
 
 interface HomeProps {
   setActiveTab: (tab: string) => void;
 }
 
-// 2. 컴포넌트는 스타일 선언 아래에 위치하여 자유롭게 styles를 사용합니다.
-const Home = ({ setActiveTab }: HomeProps) => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
+export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
   return (
-    <div style={{
-      ...styles.container, 
-      opacity: isVisible ? 1 : 0, 
-      transform: isVisible ? 'translateY(0)' : 'translateY(20px)'
-    }}>
-      {/* 히어로 섹션 */}
+    <div style={{ fontFamily: '"Pretendard", sans-serif' }}>
+      {/* 히어로 배너 */}
       <section style={styles.hero}>
-        <div style={styles.badge}>Eco-Friendly Pure Alcohol</div>
-        <h1 style={styles.heroTitle}>
-          자연에서 얻은 순수함,<br />
-          <span style={styles.gradientText}>고순도 발효주정</span>의 명가
-        </h1>
-        <p style={styles.heroSubtitle}>
-          가장 순수하고 정제된 고품질 원료공급 파트너,<br />
-          친환경 바이오 에탄올의 새로운 중심, K-Ethanol 이 함께합니다.
-        </p>
-        <div style={styles.btnGroup}>
-          <button style={styles.primaryBtn} onClick={() => setActiveTab('products')}>주정 용도 둘러보기</button>
-          <button style={styles.secondaryBtn} onClick={() => setActiveTab('contact')}>온라인 구매 문의</button>
+        <div style={styles.heroContent}>
+          <span style={styles.badge}>투명하고 안전한 발효주정 전문 유통</span>
+          <h1 style={styles.heroTitle}>
+            신뢰와 안전을 바탕으로<br />
+            최고의 주정을 공급하는 파트너
+          </h1>
+          <p style={styles.heroSub}>
+            식품, 음료, 제약, 화장품 등 일상과 밀접한 필수 원료인 95% 고순도 발효주정을<br />
+            고객사의 용도와 규격에 맞추어 가장 신속하고 정확하게 공급합니다.
+          </p>
+          <div style={styles.btnGroup}>
+            <button style={styles.primaryBtn} onClick={() => setActiveTab('purchase')}>
+              구매 절차 안내
+            </button>
+            <button style={styles.secondaryBtn} onClick={() => setActiveTab('contact')}>
+              대량 발주 문의
+            </button>
+          </div>
         </div>
       </section>
 
-      {/* 핵심 수치 섹션 */}
-      <section style={styles.statsSection}>
-        <div style={styles.statCard}>
-          <span style={styles.statNum}>95%</span>
-          <span style={styles.statLabel}>발효주정 순도 기준 보장</span>
+      {/* 3대 경영 이념 요약 */}
+      <section style={styles.valuesSection}>
+        <div style={styles.sectionHeader}>
+          <h2 style={styles.sectionTitle}>경영이념</h2>
+          <p style={styles.sectionDesc}>"안전은 우리의 기본, 신뢰는 우리의 자부심, 상생은 우리의 미래"</p>
         </div>
-        <div style={styles.statCard}>
-          <span style={styles.statNum}>100%</span>
-          <span style={styles.statLabel}>천연 곡물 원료 정제</span>
+        <div style={styles.cardGrid}>
+          <div style={styles.valueCard}>
+            <div style={styles.valueIcon}>🛡️</div>
+            <h3 style={styles.valueTitle}>안전 (安全)</h3>
+            <p style={styles.valueText}>철저한 기준과 원칙으로 타협하지 않고 안전한 주정만을 공급합니다.</p>
+          </div>
+          <div style={styles.valueCard}>
+            <div style={styles.valueIcon}>🤝</div>
+            <h3 style={styles.valueTitle}>신뢰 (信賴)</h3>
+            <p style={styles.valueText}>투명하고 정직한 유통 과정을 통해 고객과의 약속을 엄격히 지킵니다.</p>
+          </div>
+          <div style={styles.valueCard}>
+            <div style={styles.valueIcon}>🌱</div>
+            <h3 style={styles.valueTitle}>상생 (相生)</h3>
+            <p style={styles.valueText}>단순 납품을 넘어 파트너사의 성공을 돕고 더불어 지속 성장합니다.</p>
+          </div>
         </div>
-        <div style={styles.statCard}>
-          <span style={styles.statNum}>HACCP</span>
-          <span style={styles.statLabel}>안전성 전 과정 검증 완료</span>
+      </section>
+
+      {/* 주요 서비스 및 용도 요약 */}
+      <section style={styles.featureSection}>
+        <div style={styles.featureContainer}>
+          <div style={styles.featureText}>
+            <h2>엄격한 품질 기준의 95% 고순도 발효주정</h2>
+            <p>
+              전분질(쌀, 보리, 고구마, 타피오카 등)과 당질 원료를 국내에서 자연 발효 및 증류하여 만든
+              음용 가능한 고순도 에탄올입니다. 주세법을 철저히 준수하여 정밀하게 유통됩니다.
+            </p>
+            <ul style={styles.checkList}>
+              <li>✓ 탱크로리 (10드럼 이상 대량 배송)</li>
+              <li>✓ 200L 스테인레스/철제 전용 드럼</li>
+              <li>✓ 20L 소량 캔 포장 단위 대응</li>
+            </ul>
+            <button style={styles.linkBtn} onClick={() => setActiveTab('info')}>
+              발효주정 활용분야 보기 →
+            </button>
+          </div>
         </div>
       </section>
     </div>
   );
 };
 
-export default Home;
+const styles = {
+  hero: {
+    backgroundColor: '#f0fdf4',
+    backgroundImage: 'linear-gradient(135deg, #f0fdf4 0%, #e2e8f0 100%)',
+    padding: '100px 5% 90px 5%',
+    textAlign: 'center' as const,
+  },
+  heroContent: {
+    maxWidth: '900px',
+    margin: '0 auto',
+  },
+  badge: {
+    backgroundColor: '#15803d',
+    color: '#ffffff',
+    padding: '6px 16px',
+    borderRadius: '20px',
+    fontSize: '14px',
+    fontWeight: 600,
+    display: 'inline-block',
+    marginBottom: '20px',
+  },
+  heroTitle: {
+    fontSize: '44px',
+    fontWeight: 900,
+    color: '#0f172a',
+    lineHeight: '1.3',
+    marginBottom: '20px',
+    letterSpacing: '-1px',
+  },
+  heroSub: {
+    fontSize: '18px',
+    color: '#475569',
+    lineHeight: '1.6',
+    marginBottom: '40px',
+  },
+  btnGroup: {
+    display: 'flex',
+    gap: '16px',
+    justifyContent: 'center',
+  },
+  primaryBtn: {
+    padding: '14px 32px',
+    backgroundColor: '#15803d',
+    color: '#ffffff',
+    border: 'none',
+    borderRadius: '8px',
+    fontSize: '16px',
+    fontWeight: 700,
+    cursor: 'pointer',
+  },
+  secondaryBtn: {
+    padding: '14px 32px',
+    backgroundColor: '#ffffff',
+    color: '#0f172a',
+    border: '1px solid #cbd5e1',
+    borderRadius: '8px',
+    fontSize: '16px',
+    fontWeight: 700,
+    cursor: 'pointer',
+  },
+  valuesSection: {
+    padding: '90px 5%',
+    maxWidth: '1200px',
+    margin: '0 auto',
+  },
+  sectionHeader: {
+    textAlign: 'center' as const,
+    marginBottom: '50px',
+  },
+  sectionTitle: {
+    fontSize: '32px',
+    fontWeight: 800,
+    color: '#0f172a',
+  },
+  sectionDesc: {
+    fontSize: '18px',
+    color: '#15803d',
+    fontWeight: 600,
+    marginTop: '10px',
+  },
+  cardGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+    gap: '30px',
+  },
+  valueCard: {
+    padding: '36px',
+    backgroundColor: '#ffffff',
+    borderRadius: '16px',
+    border: '1px solid #e2e8f0',
+    boxShadow: '0 4px 20px rgba(0,0,0,0.03)',
+    textAlign: 'center' as const,
+  },
+  valueIcon: {
+    fontSize: '40px',
+    marginBottom: '16px',
+  },
+  valueTitle: {
+    fontSize: '22px',
+    fontWeight: 700,
+    color: '#0f172a',
+    marginBottom: '12px',
+  },
+  valueText: {
+    fontSize: '15px',
+    color: '#64748b',
+    lineHeight: '1.6',
+  },
+  featureSection: {
+    backgroundColor: '#f8fafc',
+    padding: '80px 5%',
+    borderTop: '1px solid #e2e8f0',
+  },
+  featureContainer: {
+    maxWidth: '1000px',
+    margin: '0 auto',
+    textAlign: 'center' as const,
+  },
+  featureText: {
+    lineHeight: '1.8',
+  },
+  checkList: {
+    listStyle: 'none',
+    padding: 0,
+    margin: '24px 0',
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '24px',
+    fontWeight: 600,
+    color: '#15803d',
+  },
+  linkBtn: {
+    padding: '12px 24px',
+    backgroundColor: '#0f172a',
+    color: '#ffffff',
+    border: 'none',
+    borderRadius: '6px',
+    cursor: 'pointer',
+    fontWeight: 600,
+  },
+};

@@ -1,26 +1,14 @@
-import { useState, useEffect } from 'react';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import About from './pages/About';
-import Products from './pages/Products';
-import Contact from './pages/Contact';
+import React, { useState } from 'react';
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
+import { Home } from './pages/Home';
+import { About } from './pages/About';
+import { EthanolInfo } from './pages/EthanolInfo';
+import { Purchase } from './pages/Purchase';
+import { Contact } from './pages/Contact';
 
-function App() {
-  const [activeTab, setActiveTab] = useState<string>('home');
-  const [isScrolled, setIsScrolled] = useState<boolean>(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+export function App() {
+  const [activeTab, setActiveTab] = useState('home');
 
   const renderContent = () => {
     switch (activeTab) {
@@ -28,8 +16,10 @@ function App() {
         return <Home setActiveTab={setActiveTab} />;
       case 'about':
         return <About />;
-      case 'products':
-        return <Products />;
+      case 'info':
+        return <EthanolInfo />;
+      case 'purchase':
+        return <Purchase />;
       case 'contact':
         return <Contact />;
       default:
@@ -38,26 +28,12 @@ function App() {
   };
 
   return (
-    <div style={styles.appContainer}>
-      <Header activeTab={activeTab} setActiveTab={setActiveTab} isScrolled={isScrolled} />
-      <main style={styles.mainContent}>
-        {renderContent()}
-      </main>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <Header activeTab={activeTab} setActiveTab={setActiveTab} />
+      <main style={{ flex: 1 }}>{renderContent()}</main>
       <Footer />
     </div>
   );
 }
-
-const styles = {
-  appContainer: {
-    display: 'flex',
-    flexDirection: 'column' as const,
-    minHeight: '100vh',
-  },
-  mainContent: {
-    flex: 1,
-    backgroundColor: '#ffffff',
-  },
-};
 
 export default App;
