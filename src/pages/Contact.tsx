@@ -58,9 +58,6 @@ export const Contact = () => {
           <p><strong>이메일:</strong> ethanolkorea@gmail.com</p>
           <p><strong>주소:</strong> 인천광역시 남동구 남동대로 742, 101호(대화빌딩)</p>
           <p><strong>면허번호:</strong> 발효주정소매업 131-5-84564</p>
-          <p style={{ marginTop: '10px', color: '#15803d', fontWeight: 700 }}>
-            🏦 입금 계좌: 우리은행 (예금주: ㈜케이에탄올)
-          </p>
         </div>
       </div>
 

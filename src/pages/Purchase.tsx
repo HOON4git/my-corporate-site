@@ -5,32 +5,12 @@ export const Purchase = () => {
       <section style={styles.section}>
         <span style={styles.badge}>주세사무처리규정 제86조 준수</span>
         <h2 style={styles.title}>발효주정 구매 5단계 절차</h2>
-        <div style={styles.stepContainer}>
-          <div style={styles.stepCard}>
-            <div style={styles.stepHeader}>STEP 1</div>
-            <h3>구입 신고</h3>
-            <p>관할 세무서(부가가치세과/주세담당) 방문하여 "주정 또는 원료용 주류구입 승인서" 작성 제출 (또는 홈택스 신청)</p>
-          </div>
-          <div style={styles.stepCard}>
-            <div style={styles.stepHeader}>STEP 2</div>
-            <h3>구입 의뢰</h3>
-            <p>주정 담당자에게 승인서 송부 (FAX: 0504-438-2154 또는 메일: ethanolkorea@gmail.com)</p>
-          </div>
-          <div style={styles.stepCard}>
-            <div style={styles.stepHeader}>STEP 3</div>
-            <h3>대금 결제</h3>
-            <p>출고 전 지정 계좌 송금 (우리은행 예금주: (주)케이에탄올) / 출고 당일 세금계산서 발행</p>
-          </div>
-          <div style={styles.stepCard}>
-            <div style={styles.stepHeader}>STEP 4</div>
-            <h3>주정 출고</h3>
-            <p>용량에 맞춘 운송 (탱크로리 배송 / 200L 드럼 / 20L 캔 택배 또는 직접 수령)</p>
-          </div>
-          <div style={styles.stepCard}>
-            <div style={styles.stepHeader}>STEP 5</div>
-            <h3>입고 신고</h3>
-            <p>주정 실수요지는 입고 후 반드시 관할 세무서에 반입 신고 진행</p>
-          </div>
+        <div style={styles.stepList}>
+          <div style={styles.stepLine}><span style={styles.stepIcon}>📝</span> STEP 1 · 구입 신고: 관할 세무서 방문 또는 <a href="https://www.hometax.go.kr" target="_blank" rel="noreferrer" style={styles.link}>홈택스</a>로 주류구입 승인서 제출</div>
+          <div style={styles.stepLine}><span style={styles.stepIcon}>📨</span> STEP 2 · 구입 의뢰: 승인서 제출 후 주정 담당자에게 연락 및 송부</div>
+          <div style={styles.stepLine}><span style={styles.stepIcon}>💰</span> STEP 3 · 대금 결제: 출고 전 지정 계좌로 송금하고 출고 당일 세금계산서 발행</div>
+          <div style={styles.stepLine}><span style={styles.stepIcon}>🚚</span> STEP 4 · 주정 출고: 탱크로리, 200L 드럼, 20L 캔 등 운송 방식에 따라 출고</div>
+          <div style={styles.stepLine}><span style={styles.stepIcon}>✔️</span> STEP 5 · 입고 신고: 실수요지 입고 후 관할 세무서에 반입 신고 진행</div>
         </div>
       </section>
 
@@ -47,7 +27,7 @@ export const Purchase = () => {
             <p style={{ marginTop: '10px', color: '#475569' }}>주정전용드럼(스테인레스, 철제) 주입 후 화물 운송 또는 직접 수령 가능</p>
           </div>
           <div style={styles.unitCard}>
-            <h3>🪣 20L 캔 구매</h3>
+            <h3>� 20L 캔 구매</h3>
             <p style={{ marginTop: '10px', color: '#475569' }}>소량 및 연구용 구매 시 화물, 택배 배송 또는 직접 수령 가능</p>
           </div>
         </div>
@@ -92,22 +72,34 @@ const styles = {
     marginTop: '6px',
     marginBottom: '30px',
   },
-  stepContainer: {
+  stepList: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-    gap: '16px',
+    gap: '14px',
+    paddingTop: '16px',
   },
-  stepCard: {
+  stepLine: {
     backgroundColor: '#ffffff',
-    border: '1px solid #cbd5e1',
-    borderRadius: '10px',
-    padding: '20px',
+    border: '1px solid #d1fae5',
+    borderRadius: '12px',
+    padding: '18px 20px',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '14px',
+    color: '#0f172a',
+    fontSize: '16px',
+    lineHeight: 1.6,
   },
-  stepHeader: {
-    fontSize: '12px',
-    fontWeight: 900,
+  stepIcon: {
+    width: '40px',
+    height: '40px',
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: '50%',
+    backgroundColor: '#ecfdf5',
     color: '#15803d',
-    marginBottom: '8px',
+    fontSize: '18px',
+    flexShrink: 0,
   },
   unitGrid: {
     display: 'grid',
@@ -125,5 +117,10 @@ const styles = {
     padding: '36px',
     borderRadius: '16px',
     border: '1px solid #bbf7d0',
+  },
+  link: {
+    color: '#0f766e',
+    textDecoration: 'underline',
+    fontWeight: 700,
   },
 };
