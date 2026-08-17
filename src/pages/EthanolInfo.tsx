@@ -1,3 +1,5 @@
+import manufacturingProcessImage from '../assets/제조과정.png';
+
 export const EthanolInfo = () => {
   const applications = [
     { title: '식품원료', desc: '식초, 조미료, 향신료, 감미료, 맛술, 소스류, 절임제품, 떡, 면류(냉면, 생면)' },
@@ -8,6 +10,12 @@ export const EthanolInfo = () => {
     { title: '생활건강', desc: '손세정제, 고급화장품, 치약, 1종주방세제, 향수, 구강청결제, 물티슈' },
     { title: '살균소독', desc: '식품 살균·세척, 젖병소독, 주방, 식품기구살균소독, 위생기계·기구소독' },
   ];
+
+  const processDiagram = (
+    <div style={styles.diagramWrapper}>
+      <img src={manufacturingProcessImage} alt="발효주정 제조과정" style={styles.diagramImage} />
+    </div>
+  );
 
   return (
     <div style={styles.container}>
@@ -22,6 +30,13 @@ export const EthanolInfo = () => {
           <p>
             * 희석하여 음용할 수 있는 에틸알코올을 의미하며, 식품첨가물 및 각종 산업의 핵심 기초 소재입니다.
           </p>
+          <div style={styles.legalNote}>
+            <h4 style={styles.legalNoteTitle}>제86조(판매경로)</h4>
+            <p style={styles.legalNoteText}>
+              ③ 실수요자가 주류제조원료용 이외의 용도로 발효주정을 구입하려는 때에는 제12조제1항제11호에 의해 면허를 받은<br />
+              발효주정소매업자로부터 구입하도록 하여야 한다.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -71,15 +86,16 @@ export const EthanolInfo = () => {
       {/* 제조 공정 */}
       <section style={styles.section}>
         <h3 style={styles.subTitle}>발효주정 제조 공정</h3>
+        {processDiagram}
         <div style={styles.processGrid}>
           <div style={styles.processStep}>
             <span style={styles.stepNum}>1</span>
-            <h4>원료 준비</h4>
+            <h4>원료</h4>
             <p>쌀, 보리, 고구마, 타피오카 등 식물성 원료</p>
           </div>
           <div style={styles.processStep}>
             <span style={styles.stepNum}>2</span>
-            <h4>분쇄 & 증자</h4>
+            <h4>원료 분쇄 및 가열</h4>
             <p>원료 분쇄 및 가열 조리를 통한 녹말 액화</p>
           </div>
           <div style={styles.processStep}>
@@ -113,41 +129,85 @@ export const EthanolInfo = () => {
 
 const styles = {
   container: {
-    maxWidth: '1100px',
+    maxWidth: '1200px',
     margin: '0 auto',
-    padding: '80px 5%',
+    padding: '80px 5% 100px',
     fontFamily: '"Pretendard", sans-serif',
+    background: 'linear-gradient(180deg, #f8f5ef 0%, #fdfcf9 100%)',
   },
   section: {
     marginBottom: '70px',
+    padding: '28px 24px',
+    borderRadius: '26px',
+    background: 'rgba(255,255,255,0.65)',
+    border: '1px solid rgba(148, 163, 184, 0.18)',
+    boxShadow: '0 18px 40px rgba(15, 23, 42, 0.04)',
   },
   title: {
-    fontSize: '36px',
+    fontSize: '38px',
     fontWeight: 900,
     color: '#0f172a',
     marginBottom: '24px',
+    letterSpacing: '-0.03em',
   },
   subTitle: {
-    fontSize: '24px',
+    fontSize: '28px',
     fontWeight: 800,
     color: '#0f172a',
-    marginBottom: '20px',
+    marginBottom: '22px',
+    letterSpacing: '-0.03em',
   },
   lawBox: {
-    backgroundColor: '#f8fafc',
+    background: 'linear-gradient(135deg, #f8fafc 0%, #eefaf6 100%)',
     border: '1px solid #cbd5e1',
-    padding: '28px',
-    borderRadius: '12px',
+    padding: '30px 28px',
+    borderRadius: '16px',
+    lineHeight: '1.8',
+    boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.8)',
+  },
+  legalNote: {
+    marginTop: '20px',
+    paddingTop: '18px',
+    borderTop: '1px solid #cbd5e1',
+  },
+  legalNoteTitle: {
+    margin: '0 0 8px',
+    fontSize: '18px',
+    fontWeight: 800,
+    color: '#0f172a',
+  },
+  legalNoteText: {
+    margin: 0,
+    fontSize: '15px',
     lineHeight: '1.7',
+    color: '#334155',
   },
   tableWrapper: {
     overflowX: 'auto' as const,
+    borderRadius: '16px',
+    border: '1px solid #dfe7ee',
+    boxShadow: '0 8px 24px rgba(148, 163, 184, 0.12)',
   },
   table: {
     width: '100%',
     borderCollapse: 'collapse' as const,
     textAlign: 'left' as const,
     fontSize: '15px',
+    backgroundColor: '#ffffff',
+  },
+  diagramWrapper: {
+    width: '100%',
+    borderRadius: '20px',
+    overflow: 'hidden',
+    backgroundColor: '#f8fafc',
+    marginBottom: '30px',
+    border: '1px solid #dfeaf4',
+    boxShadow: '0 14px 32px rgba(15, 23, 42, 0.08)',
+  },
+  diagramImage: {
+    display: 'block',
+    width: '100%',
+    height: 'auto',
   },
   processGrid: {
     display: 'grid',
@@ -155,23 +215,25 @@ const styles = {
     gap: '20px',
   },
   processStep: {
-    backgroundColor: '#ffffff',
-    border: '1px solid #e2e8f0',
-    padding: '24px',
-    borderRadius: '12px',
+    background: 'linear-gradient(180deg, #ffffff 0%, #f3f8ff 100%)',
+    border: '1px solid #dfeaf4',
+    padding: '24px 18px',
+    borderRadius: '16px',
     textAlign: 'center' as const,
+    boxShadow: '0 12px 28px rgba(100, 116, 139, 0.08)',
   },
   stepNum: {
-    backgroundColor: '#15803d',
+    background: 'linear-gradient(135deg, #2e8b57 0%, #1d6f46 100%)',
     color: '#ffffff',
-    width: '32px',
-    height: '32px',
+    width: '38px',
+    height: '38px',
     borderRadius: '50%',
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
     fontWeight: 800,
     marginBottom: '12px',
+    boxShadow: '0 8px 18px rgba(33, 129, 79, 0.24)',
   },
   appGrid: {
     display: 'grid',
@@ -180,9 +242,10 @@ const styles = {
   },
   appCard: {
     padding: '24px',
-    backgroundColor: '#f0fdf4',
-    borderRadius: '10px',
+    background: 'linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)',
+    borderRadius: '14px',
     border: '1px solid #bbf7d0',
+    boxShadow: '0 12px 22px rgba(16, 185, 129, 0.08)',
   },
   appTitle: {
     fontSize: '18px',
@@ -193,6 +256,6 @@ const styles = {
   appDesc: {
     fontSize: '14px',
     color: '#334155',
-    lineHeight: '1.5',
+    lineHeight: '1.6',
   },
 };

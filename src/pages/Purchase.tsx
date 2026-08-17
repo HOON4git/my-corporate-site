@@ -1,3 +1,5 @@
+import purchaseProcessImage from '../assets/purchase-process.png';
+
 export const Purchase = () => {
   return (
     <div style={styles.container}>
@@ -5,6 +7,9 @@ export const Purchase = () => {
       <section style={styles.section}>
         <span style={styles.badge}>주세사무처리규정 제86조 준수</span>
         <h2 style={styles.title}>발효주정 구매 5단계 절차</h2>
+        <div style={styles.purchaseImageWrapper}>
+          <img src={purchaseProcessImage} alt="발효주정 구매 절차" style={styles.purchaseImage} />
+        </div>
         <div style={styles.stepList}>
           <div style={styles.stepLine}><span style={styles.stepIcon}>📝</span> STEP 1 · 구입 신고: 관할 세무서 방문 또는 <a href="https://www.hometax.go.kr" target="_blank" rel="noreferrer" style={styles.link}>홈택스</a>로 주류구입 승인서 제출</div>
           <div style={styles.stepLine}><span style={styles.stepIcon}>📨</span> STEP 2 · 구입 의뢰: 승인서 제출 후 주정 담당자에게 연락 및 송부</div>
@@ -27,7 +32,7 @@ export const Purchase = () => {
             <p style={{ marginTop: '10px', color: '#475569' }}>주정전용드럼(스테인레스, 철제) 주입 후 화물 운송 또는 직접 수령 가능</p>
           </div>
           <div style={styles.unitCard}>
-            <h3>� 20L 캔 구매</h3>
+            <h3>🧴 20L 캔 구매</h3>
             <p style={{ marginTop: '10px', color: '#475569' }}>소량 및 연구용 구매 시 화물, 택배 배송 또는 직접 수령 가능</p>
           </div>
         </div>
@@ -71,6 +76,20 @@ const styles = {
     color: '#0f172a',
     marginTop: '6px',
     marginBottom: '30px',
+  },
+  purchaseImageWrapper: {
+    width: '100%',
+    marginBottom: '24px',
+    borderRadius: '20px',
+    overflow: 'hidden',
+    backgroundColor: '#ffffff',
+    border: '1px solid #dfeaf4',
+    boxShadow: '0 12px 28px rgba(15, 23, 42, 0.08)',
+  },
+  purchaseImage: {
+    display: 'block',
+    width: '100%',
+    height: 'auto',
   },
   stepList: {
     display: 'grid',
